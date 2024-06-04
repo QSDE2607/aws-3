@@ -1,0 +1,10 @@
+ETL sử dụng SSIS ở On-premises Data Warehouse - 5.14s 
+ETL sử dụng T-SQL PROCEDURE ở On-premises Data Warehouse - 3.2s
+Chạy ETL sử dụng T-SQL PROCEDURE ở Cloud Data Warehouse - 10.5s
+
+Đánh giá:
+ETL khi sử dung T-SQL ở On-premises Data Warehouse nhanh nhất và Chạy ETL sử dụng T-SQL PROCEDURE ở Cloud Data Warehouse - 14.5s là chậm nhất
+Lý do:
+ETL bang T-SQL ở On-premises nhanh nhất do các tác vụ ETL và databases có sự đồng nhất về cú pháp và cùng nằm trên 1 hệ thông không bị ảnh hưởng bởi yếu tố môi trường khác
+ETL sử dụng SSIS ở On-premises Data Warehouse chậm hơn vì dữ lieu và các tác vụ ETL nằm ở các hệ thống phần mềm khác nhau, cần mất thời gian và tài nguyên để đọc, ghi
+Chạy ETL sử dụng T-SQL PROCEDURE ở Cloud Data Warehouse là chậm nhất vì bị ảnh hưởng về tốc độ mạng của user kết nối với hệ thống aws còn có sự khác nhau với từng AZ ngoài ra còn mất thời gian xác thực quyền của user thực hiện ETL và nhiều yếu tố khác
